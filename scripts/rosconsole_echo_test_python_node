@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import rospy
+
+
+def main():
+    rospy.init_node('rosconsole_echo_test', anonymous=True)
+
+    rate = rospy.Rate(1.0)
+
+    while not rospy.is_shutdown():
+        rospy.logdebug('Debug message from {}'.format(rospy.get_name()))
+        rospy.loginfo('Info message from {}'.format(rospy.get_name()))
+        rospy.logwarn('Warn message from {}'.format(rospy.get_name()))
+        rospy.logerr('Error message from {}'.format(rospy.get_name()))
+        rospy.logfatal('Fatal message from {}'.format(rospy.get_name()))
+
+        rate.sleep()
+
+
+if __name__ == "__main__":
+    main()
